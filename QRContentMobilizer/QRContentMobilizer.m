@@ -8,7 +8,6 @@
 
 #import "QRContentMobilizer.h"
 #import "AFHTTPRequestOperationManager.h"
-#import "SSKeychain.h"
 
 CGFloat const QRParsingConfidenceMax = 1.f;
 CGFloat const QRParsingConfidenceAllowable = .3f;
