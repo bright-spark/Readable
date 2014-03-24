@@ -24,8 +24,7 @@ typedef NS_ENUM(NSInteger, QRMobilizerError) {
 };
 
 @interface QRContentMobilizer : NSObject
+@property (nonatomic, copy) NSString *token;
 + (instancetype)mobilizer;
 - (void)mobilizeContentsOfURL:(NSURL *)url completion:(void (^)(NSDictionary *content, NSError *error))completionBlock;
-+ (NSString *)token;
-+ (void)setToken:(NSString *)token;
 @end

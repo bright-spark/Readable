@@ -58,7 +58,7 @@ BOOL const QRPagingEnabled = NO;
 
 - (void)mobilizeContentsOfURL:(NSURL *)url completion:(void (^)(NSDictionary *response, NSError *error))completionBlock {
     
-    [self.manager GET:@"article" parameters:@{QRTokenKey: [QRContentMobilizer token], QRURLKey : [url absoluteString], QRPagingKey : @(QRPagingEnabled), QRFieldsKey : self.defaultFields} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self.manager GET:@"article" parameters:@{QRTokenKey: [self token], QRURLKey : [url absoluteString], QRPagingKey : @(QRPagingEnabled), QRFieldsKey : self.defaultFields} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSNumber *errorCode = responseObject[@"errorCode"];
         if (errorCode) {
@@ -126,16 +126,11 @@ BOOL const QRPagingEnabled = NO;
     return _dateFormatter;
 }
 
-+ (void)setToken:(NSString *)token {
-    if (!token) {
-        [SSKeychain deletePasswordForService:QRDiffbotToken account:QRDiffbotService];
-    } else {
-        [SSKeychain setPassword:token forService:QRDiffbotToken account:QRDiffbotService];
+- (NSString *)token {
+    if (!_token) {
+        _token = @"";
     }
-}
-
-+ (NSString *)token {
-    return [SSKeychain passwordForService:QRDiffbotToken account:QRDiffbotService];
+    return _token;
 }
 
 @end
