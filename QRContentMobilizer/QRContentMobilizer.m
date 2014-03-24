@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Wojciech Czekalski. All rights reserved.
 //
 
-#import "NSAttributedString+HTMLStyle.h"
 #import "QRContentMobilizer.h"
 #import "AFHTTPRequestOperationManager.h"
 #import "SSKeychain.h"

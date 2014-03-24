@@ -8,7 +8,6 @@
 
 #import "QRViewController.h"
 #import "QRContentMobilizer.h"
-#import "NSAttributedString+HTMLStyle.h"
 
 @interface QRViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
